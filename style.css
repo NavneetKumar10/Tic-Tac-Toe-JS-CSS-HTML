@@ -1,0 +1,134 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+body {
+    background-color: aquamarine;
+    background-clip: ;
+    text-align: center;
+}
+
+.container{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game{
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1vmin;
+
+}
+
+/* Reduce spacing between the box and the heading */
+.game {
+    margin-top: 1px; /* Adjust as needed */
+}
+
+
+.box{
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.5);
+    font-size: 8vmin;
+    color:blueviolet;
+}
+
+#reset-btn{
+    padding: 1rem;
+    font-size: 1.25rem;
+    border-radius: 1rem;
+}
+
+/* Set the video container to be relative */
+/* Adjust the video container to cover the entire viewport */
+.video-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Style the video to cover the container */
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5; /* Adjust the opacity value (0 to 1) to make it more or less transparent */
+    object-fit: cover; /* Ensures the video covers the entire container */
+}
+
+
+
+/* Center the container vertically and horizontally */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh; /* Adjust as needed */
+}
+
+
+h1 {
+    font-weight: bold; /* Increase font weight for denser appearance */
+    color: black /* Dark gray with increased opacity */
+}
+
+
+
+
+/* Style the Reset Game button */
+#reset-btn {
+    padding: 1rem;
+    font-size: 1.25rem;
+    border-radius: 1rem;
+    /* Additional styling as desired */
+}
+
+/* Adjust the opacity for the game title, box buttons, and reset button */
+
+.box,
+#reset-btn {
+    opacity: 0.9; /* Adjust the opacity value (0 to 1) as desired */
+}
+
+#new-btn {
+    padding: 0.5rem;
+    background-color: rgb(242, 245, 248);
+    color: black;
+    opacity: 0.9;
+    border-radius: 1rem;
+    border: none;
+}
+
+#msg {
+    color: black;
+    font-size: 9vmin;
+    opacity: 0.9;
+}
+
+.msg-container {
+    height: 100vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hide {
+    display: none;
+}
