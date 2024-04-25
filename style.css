@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: aquamarine;
+    background-color: rgb(21, 39, 207);
     background-clip: ;
     text-align: center;
 }
@@ -85,7 +85,7 @@ video {
 
 h1 {
     font-weight: bold; /* Increase font weight for denser appearance */
-    color: black /* Dark gray with increased opacity */
+    color: rgb(246, 244, 244) /* Dark gray with increased opacity */
 }
 
 
