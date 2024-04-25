@@ -1,97 +1,134 @@
-let boxes = document.querySelectorAll(".box");
-let resetBtn = document.querySelector("#reset-btn");
-let newGameBtn = document.querySelector("#new-btn");
-let msgContainer = document.querySelector(".msg-container");
-let msg = document.querySelector("#msg");
+*{
+    margin:0;
+    padding: 0;
+}
 
-let turnO = true; // playerX, playerO
-let timer; // Variable to hold the timer
+body {
+    background-color: rgb(0, 123, 255);
+    background-clip: ;
+    text-align: center;
+}
 
-const winPatterns = [
-    [0, 1, 2],
-    [0, 3, 6],
-    [0, 4, 8],
-    [1, 4, 7],
-    [2, 5, 8],
-    [2, 4, 6],
-    [3, 4, 5],
-    [6, 7, 8],
-];
+.container{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-const resetGame = () => {
-    turnO = true;
-    enableBoxes();
-    msgContainer.classList.add("hide");
-};
+.game{
+    height: 60vmin;
+    width: 60vmin;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1vmin;
 
-const startTimer = () => {
-    timer = setTimeout(() => {
-        switchTurn();
-    }, 4000); // 4 seconds delay
-};
+}
 
-const resetTimer = () => {
-    clearTimeout(timer);
-    startTimer();
-};
+/* Reduce spacing between the box and the heading */
+.game {
+    margin-top: 1px; /* Adjust as needed */
+}
 
-const switchTurn = () => {
-    turnO = !turnO;
-    resetTimer();
-};
 
-boxes.forEach((box) => {
-    box.addEventListener("click", () => {
-        if (!box.disabled) { // Only proceed if the box is not disabled
-            if (turnO){
-                box.innerText = "O";
-                turnO = false;
-            } else {
-                box.innerText = "X";
-                turnO = true;
-            }
-            box.disabled = true;
-            resetTimer(); // Reset the timer after each move
-            checkWinner();
-        }
-    });
-});
+.box{
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba(0,0,0,0.5);
+    font-size: 8vmin;
+    color:blueviolet;
+}
 
-const disableBoxes = () => {
-    for (let box of boxes) {
-        box.disabled = true;
-    }
-};
+#reset-btn{
+    padding: 1rem;
+    font-size: 1.25rem;
+    border-radius: 1rem;
+}
 
-const enableBoxes = () => {
-    for (let box of boxes) {
-        box.disabled = false;
-        box.innerText = "";
-    }
-};
+/* Set the video container to be relative */
+/* Adjust the video container to cover the entire viewport */
+.video-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+}
 
-const showWinner = (winner) => {
-    msg.innerText = `Congratulations, Winner is ${winner}`;
-    msgContainer.classList.remove("hide");
-    disableBoxes();
-};
+/* Style the video to cover the container */
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5; /* Adjust the opacity value (0 to 1) to make it more or less transparent */
+    object-fit: cover; /* Ensures the video covers the entire container */
+}
 
-const checkWinner = () => {
-    for (let pattern of winPatterns){
-        let pos1Val = boxes[pattern[0]].innerText;
-        let pos2Val = boxes[pattern[1]].innerText;
-        let pos3Val = boxes[pattern[2]].innerText;
 
-        if (pos1Val !== "" && pos2Val !== "" && pos3Val !== ""){
-            if (pos1Val === pos2Val && pos2Val === pos3Val){
-                showWinner(pos1Val);
-            }
-        }
-    }
-};
 
-newGameBtn.addEventListener("click" , resetGame);
-resetBtn.addEventListener("click", resetGame);
+/* Center the container vertically and horizontally */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh; /* Adjust as needed */
+}
 
-// Start the timer when the page loads
-startTimer();
+
+h1 {
+    font-weight: bold; /* Increase font weight for denser appearance */
+    color: rgb(246, 244, 244) /* Dark gray with increased opacity */
+}
+
+
+
+
+/* Style the Reset Game button */
+#reset-btn {
+    padding: 1rem;
+    font-size: 1.25rem;
+    border-radius: 1rem;
+    /* Additional styling as desired */
+}
+
+/* Adjust the opacity for the game title, box buttons, and reset button */
+
+.box,
+#reset-btn {
+    opacity: 0.9; /* Adjust the opacity value (0 to 1) as desired */
+}
+
+#new-btn {
+    padding: 0.5rem;
+    background-color: rgb(242, 245, 248);
+    color: black;
+    opacity: 0.9;
+    border-radius: 1rem;
+    border: none;
+}
+
+#msg {
+    color: black;
+    font-size: 9vmin;
+    opacity: 0.9;
+}
+
+.msg-container {
+    height: 100vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hide {
+    display: none;
+}
