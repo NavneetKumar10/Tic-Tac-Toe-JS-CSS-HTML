@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: rgb(115, 0, 255);
+    background-color: rgb(102, 0, 255);
     background-clip: ;
     text-align: center;
 }
@@ -39,7 +39,7 @@ body {
     border-radius: 1rem;
     box-shadow: 0 0 1rem rgba(0,0,0,0.5);
     font-size: 8vmin;
-    color:blueviolet;
+    color:rgb(226, 198, 43);
 }
 
 #reset-btn{
